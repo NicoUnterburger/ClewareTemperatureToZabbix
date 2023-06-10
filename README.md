@@ -8,7 +8,9 @@ https://www.cleware-shop.de/epages/63698188.sf/en_US/?ObjectPath=/Shops/63698188
 
 ## Installation guide
 1. Install Linux dependencies
-	   apt install wget curl zabbix-agent unzip
+```
+apt install wget curl zabbix-agent unzip
+```
 2. Download original Linux scripts from Cleware
 ```
 mkdir /etc/cleware
