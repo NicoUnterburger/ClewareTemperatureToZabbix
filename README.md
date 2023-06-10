@@ -17,11 +17,13 @@ mkdir /etc/cleware
 cd /etc/cleware/
 wget http://www.cleware.info/downloads/german/Linux_Ubuntu_6.6.1.zip
 unzip Linux_Ubuntu_6.6.1.zip
+chmod +x /etc/cleware/USBtemp
 ```
 3. Save Wrapper-Script to local Folder (/etc/zabbix/scripts/cleware-wrapper.sh)
 ```
 mkdir /etc/zabbix/scripts/
 wget https://raw.githubusercontent.com/NicoUnterburger/ClewareTemperatureToZabbix/main/cleware-wrapper.sh
+chmod +x /etc/zabbix/scripts/cleware-wrapper.sh
 ```
 4. Edit zabbix-agent.conf and add UserParameter
 ```
@@ -31,6 +33,7 @@ UserParameter=cleware-wrapper.sh[*],sudo /etc/zabbix/scripts/cleware-wrapper.sh 
 ```
 zabbix ALL=(ALL:ALL) NOPASSWD: /etc/zabbix/scripts/cleware-wrapper.sh
 ```
-6. Import Zabbix Template and link to host
+6. Reboot agent client
+7. Import Zabbix Template and link to host
 
 ![zabbix-cleware-graph](https://github.com/NicoUnterburger/ClewareTemperatureToZabbix/assets/5436763/d515b0d4-1e1e-4541-b824-91cf11f2f2d0)
