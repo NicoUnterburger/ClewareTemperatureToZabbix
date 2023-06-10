@@ -32,3 +32,5 @@ UserParameter=cleware-wrapper.sh[*],sudo /etc/zabbix/scripts/cleware-wrapper.sh 
 zabbix ALL=(ALL:ALL) NOPASSWD: /etc/zabbix/scripts/cleware-wrapper.sh
 ```
 6. Import Zabbix Template and link to host
+
+![zabbix-cleware-graph](https://github.com/NicoUnterburger/ClewareTemperatureToZabbix/assets/5436763/d515b0d4-1e1e-4541-b824-91cf11f2f2d0)
