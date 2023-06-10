@@ -2,7 +2,9 @@
 ClewareTemperatureToZabbix - uses USB temperature sensors from the company Cleware and sends the data to a Zabbix server
 
 Script was tested on Debian 11 with Zabbix 6.0 and the following sensor: 
+```
 https://www.cleware-shop.de/epages/63698188.sf/en_US/?ObjectPath=/Shops/63698188/Products/4
+```
 
 ## Installation guide
 1. Install Linux dependencies
