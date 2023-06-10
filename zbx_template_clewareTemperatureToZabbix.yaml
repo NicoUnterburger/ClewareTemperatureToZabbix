@@ -1,0 +1,43 @@
+zabbix_export:
+  version: '6.0'
+  date: '2023-06-10T08:53:52Z'
+  groups:
+    -
+      uuid: 3c68a6ab44814def963242eda2b5ee1c
+      name: 'Template Cleware'
+  templates:
+    -
+      uuid: 296fe6937ab74d2f9159b7ffe3b6f303
+      template: 'Cleware Temperature by Zabbix Agent'
+      name: 'Cleware Temperature by Zabbix Agent'
+      description: |
+        Monitoring Cleware USB-based Temperature Sensor by Zabbix Agent for Linux 
+        More infos:
+        https://github.com/NicoUnterburger/ClewareTemperatureToZabbix
+      groups:
+        -
+          name: 'Template Cleware'
+      items:
+        -
+          uuid: 77a50e972b3e47908a78e5c5197a7a97
+          name: Temperatur
+          type: ZABBIX_ACTIVE
+          key: 'cleware-wrapper.sh[temperature]'
+          value_type: FLOAT
+          units: C
+          description: 'Temperature data of the connected Cleware Sensor.'
+          tags:
+            -
+              tag: Application
+              value: Cleware
+          triggers:
+            -
+              uuid: f27deef47cf548dca832191a020072e8
+              expression: 'last(/Cleware Temperature by Zabbix Agent/cleware-wrapper.sh[temperature])>30'
+              name: 'High Temperature'
+              priority: INFO
+            -
+              uuid: 81ea2b68274c461aaf0f4f7ac907d156
+              expression: 'last(/Cleware Temperature by Zabbix Agent/cleware-wrapper.sh[temperature])<15'
+              name: 'Low Temperature'
+              priority: INFO
